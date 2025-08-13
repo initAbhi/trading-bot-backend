@@ -3,9 +3,14 @@ const DeltaRestClient = require("../index");
 const api_key = "YOUR_API_KEY";
 const api_secret = "YOUR_API_SECRET";
 
+//live account
 const API_KEY = "zULeVyHoGfLG1IJqSm4mEPuJ3PBEsC";
 const API_SECRET =
   "vVIUddVz5a4xWeFeVyrWBj5JyP3JhviqcKe0MkLMGwMoXLm8DMyMjBuhk8xI";
+
+// const API_KEY = "BvOe6GhK3aVrDRxbifLXKjQKENtlAH";
+// const API_SECRET =
+//   "1qZkjGPYNNSgW9ocQ7hGRpIMzj0cb1pqUWsyGZmBQwpnPkHWYTy9fnIL8fxS";
 
 async function createClient() {
   return await new DeltaRestClient(API_KEY, API_SECRET);
@@ -68,20 +73,27 @@ async function placeOrder(orderData) {
 }
 
 // ✅ Cancel order
-async function cancelOrder(orderId) {
+// ✅ Cancel order (fixed for Swagger client)
+async function cancelOrder(orderId, productId = null, clientOrderId = null) {
   const client = await createClient();
   try {
-    // The API expects product_symbol for cancellation
-    const res = await client.apis.Orders.cancelOrder({
-      product_symbol: "BTCUSD",
-      id: orderId,
-    });
-    return re.body;
+    const body = {
+      id: orderId, // required
+    };
+
+    // Optional parameters if available
+    if (productId) body.product_id = productId;
+    if (clientOrderId) body.client_order_id = clientOrderId;
+
+    // Swagger expects { order: body }
+    const res = await client.apis.Orders.cancelOrder({ order: body });
+    return res.body;
   } catch (error) {
-    console.log("Error ca,celling order:", error.message);
+    console.error("Error cancelling order:", error.message);
     throw error;
   }
 }
+
 
 // ✅ Get order history (filled/completed orders)
 async function getOrderHistory(pageSize = 10) {

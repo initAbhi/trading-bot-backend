@@ -29,7 +29,7 @@ const {
     console.log("New Order:", newOrder);
   
     // Cancel order
-    const cancelled = await cancelOrder(newOrder.result.id);
-    console.log("Cancelled:", cancelled);
+    // const cancelled = await cancelOrder(newOrder.result.id);
+    // console.log("Cancelled:", cancelled);
   })();
   

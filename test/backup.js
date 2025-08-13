@@ -12,7 +12,7 @@ const {
   // console.dir(symbols, { depth: null, maxArrayLength: null });
 
   // Get specific product ID
-  const btcId = await getProductId("BTCUSD");
+  const btcId = await getProductId("INJUSD");
   console.log("BTC Product ID:", btcId);
 
   // Get open orders
@@ -28,7 +28,16 @@ const {
   });
   console.log("New Order:", newOrder);
 
-  // Cancel order
-  const cancelled = await cancelOrder(newOrder.result.id);
-  console.log("Cancelled:", cancelled);
+  // // Cancel order
+  // setTimeout(async () => {
+  //   const cancelled = await cancelOrder(newOrder.result.id,btcId);
+  // }, 3000)
+  // const sell = await placeOrder({
+  //   product_id: btcId,
+  //   size: 1,
+  //   side: "sell",
+  //   order_type: "market_order",
+  // });
+  // console.log("New Order:", sell);
+  // console.log("Cancelled:", cancelled);
 })();
