@@ -1,5 +1,5 @@
 // deltaApi.js
-const DeltaRestClient = require("../index");
+const DeltaRestClient = require("../utils/client");
 const api_key = "YOUR_API_KEY";
 const api_secret = "YOUR_API_SECRET";
 
