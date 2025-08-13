@@ -1,0 +1,1 @@
+{"version":3,"file":"DeltaAPIKeyAuthorization.d.ts","sourceRoot":"","sources":["../../src/lib/DeltaAPIKeyAuthorization.ts"],"names":[],"mappings":"AAGA,OAAO,EAAE,aAAa,EAAE,MAAM,UAAU,CAAC;AAEzC;;GAEG;AACH,qBAAa,wBAAwB;IACnC,OAAO,CAAC,MAAM,CAAS;IACvB,OAAO,CAAC,SAAS,CAAS;gBAEd,MAAM,EAAE,MAAM,EAAE,SAAS,EAAE,MAAM;IAK7C,KAAK,CAAC,GAAG,EAAE,aAAa,GAAG,OAAO;IAkBlC,OAAO,CAAC,IAAI;CAab"}
